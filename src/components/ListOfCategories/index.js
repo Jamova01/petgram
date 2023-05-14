@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { Category } from '../Category'
 import { List, Item } from './styles'
-import data from '../../../api/db.json'
 
 const useCategoriesData = () => {
   const [categories, setCategories] = useState([])
@@ -11,10 +10,10 @@ const useCategoriesData = () => {
     setLoading(true)
     const fetchData = async () => {
       try {
-        setTimeout(() => {
-          setCategories(data.categories)
-          setLoading(false)
-        }, 1000);
+        const response = await window.fetch('https://petgram-api-jamova01.vercel.app/categories');
+        const res = await response.json();
+        setCategories(res);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error)
       }
