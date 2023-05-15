@@ -1,14 +1,23 @@
 import React from 'react'
-import { ListOfCategories } from './components/ListOfCategories'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { GlobalStyle } from './styles/GlobalStyles'
 import { Logo } from './components/Logo'
-import { ListOfPhotoCards } from './components/ListOfPhotoCards'
+import { HomePage } from './pages/HomePage';
+import { PhotoDetail } from './pages/PhotoDetail';
 
-export const App = () => (
-  <div>
-    <GlobalStyle />
-    <Logo />
-    <ListOfCategories />
-    <ListOfPhotoCards />
-  </div>
-)
+export const App = () => {
+
+  return (
+    <div>
+      <GlobalStyle />
+      <Logo />
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/photos/:id' element={<PhotoDetail />} />
+        </Routes>
+      </Router>
+    </div>
+  )
+
+}
