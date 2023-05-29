@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PhotoCardWithQuery from '../container/PhotoCardWithQuery';
 
-export const PhotoDetail = () => {
+export const PhotoDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
