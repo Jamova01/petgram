@@ -4,16 +4,30 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 
 // Apollo
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloClient, ApolloProvider, ApolloLink, InMemoryCache, HttpLink, concat } from '@apollo/client'
 
 // Context
-import { Provider } from './Context';
+import { Provider } from './Context'
 
 import { App } from './App'
 
+const httpLink = new HttpLink({ uri: 'https://petgram-server-jamova01.vercel.app/graphql' })
+
+const authMiddleware = new ApolloLink((operation, forward) => {
+  const token = window.sessionStorage.getItem('token')
+  const authorization = token ? `Bearer ${token}` : ''
+  operation.setContext({
+    headers: {
+      authorization
+    }
+  })
+
+  return forward(operation)
+})
+
 const client = new ApolloClient({
-  uri: 'https://petgram-server-jamova01.vercel.app/graphql',
   cache: new InMemoryCache(),
+  link: concat(authMiddleware, httpLink)
 })
 
 const container = document.getElementById('app')
@@ -25,5 +39,4 @@ root.render(
       <App />
     </ApolloProvider>
   </Provider>
-
-);
+)
