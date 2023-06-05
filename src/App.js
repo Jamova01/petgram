@@ -38,5 +38,4 @@ export const App = () => {
       </Router>
     </div>
   )
-
 }
