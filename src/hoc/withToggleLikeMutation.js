@@ -1,29 +1,30 @@
-import React from 'react';
-import { gql, useMutation } from '@apollo/client';
+import React from 'react'
+import { gql, useMutation } from '@apollo/client'
 
 const LIKE_PHOTO = gql`
-  mutation likeAnonymousPhoto($input: LikePhoto!) {
-    likeAnonymousPhoto(input: $input) {
+  mutation likePhoto($input: LikePhoto!) {
+    likePhoto(input: $input) {
       id,
       liked,
       likes
     }
   }
 `
+
 export const withToggleLikeMutation = (WrappedComponent) => {
-  return ({ photoId, liked, likes, setLiked }) => {
+  return ({ photoId, liked, likes }) => {
 
-    const [toggleLike] = useMutation(LIKE_PHOTO);
+    const [toggleLike] = useMutation(LIKE_PHOTO)
 
-    const handleToggleLike = () => {
-      if (!liked) {
-        toggleLike({
+    const handleToggleLike = async () => {
+      try {
+        await toggleLike({
           variables: { input: { id: photoId } },
-
         });
-        setLiked(!liked)
+      } catch (error) {
+        console.error('Error al ejecutar la mutación:', error)
       }
-    };
+    }
 
     return (
       <WrappedComponent
@@ -31,7 +32,6 @@ export const withToggleLikeMutation = (WrappedComponent) => {
         likes={likes}
         onClick={handleToggleLike}
       />
-    );
+    )
   }
 }
-
