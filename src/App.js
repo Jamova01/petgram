@@ -15,6 +15,7 @@ import { Context } from './Context'
 
 // Styles
 import { GlobalStyle } from './styles/GlobalStyles'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 export const App = () => {
   const { isAuth } = useContext(Context)
@@ -27,12 +28,13 @@ export const App = () => {
           <Logo />
         </Link>
         <Routes>
+          <Route path='*' element={<NotFoundPage />} />
           <Route path='/' element={<HomePage />} />
           <Route path="/pet/:id" element={<HomePage />} />
-          <Route path='/detail/:id' element={<PhotoDetailPage />} />
-          <Route path="/favorites" element={isAuth ? <FavoritesPage /> : <Navigate to='/login' />} />
-          <Route path="/user" element={isAuth ? <UserPage /> : <Navigate to='/login' />} />
           <Route path="/login" element={<NotRegisteredUser />} />
+          <Route path='/detail/:id' element={<PhotoDetailPage />} />
+          <Route path="/user" element={isAuth ? <UserPage /> : <Navigate to='/login' />} />
+          <Route path="/favorites" element={isAuth ? <FavoritesPage /> : <Navigate to='/login' />} />
         </Routes>
         <NavBar />
       </Router>
