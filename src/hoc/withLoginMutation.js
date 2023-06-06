@@ -10,8 +10,8 @@ const LOGIN = gql`
 `
 export const withLoginMutation = (WrappedComponent) => {
   return () => {
-    const email = useInputValue('')
-    const password = useInputValue('')
+    const email = useInputValue('georgebyt01@gmail.com')
+    const password = useInputValue('12345')
     const { activateAuth } = useContext(Context)
     const [mutation, { loading, error }] = useMutation(LOGIN)
 
