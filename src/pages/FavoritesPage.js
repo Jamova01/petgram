@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import GetFavorites from '../container/GetFavorites'
 
 export const FavoritesPage = () => {
-  return(
-    <h1>Favorites</h1>
+  return (
+    <Fragment>
+      <h1>Favorites</h1>
+      <GetFavorites />
+    </Fragment>
   )
 }
