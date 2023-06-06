@@ -10,8 +10,8 @@ const REGISTER = gql`
 `
 export const withRegisterMutation = (WrappedComponent) => {
   return () => {
-    const email = useInputValue('')
-    const password = useInputValue('')
+    const email = useInputValue('georgebyt01@gmail.com')
+    const password = useInputValue('12345')
     const { activateAuth } = useContext(Context)
     const [mutation, { loading, error }] = useMutation(REGISTER)
 
