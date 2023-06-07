@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { gql, useMutation } from '@apollo/client';
-import { useInputValue } from '../hooks/useInputValue';
-import { Context } from '../Context';
+import React, { useContext } from 'react'
+import { gql, useMutation } from '@apollo/client'
+import { useInputValue } from '../hooks/useInputValue'
+import { Context } from '../Context'
 
 const REGISTER = gql`
   mutation signup($input: UserCredentials!){
@@ -19,10 +19,10 @@ export const withRegisterMutation = (WrappedComponent) => {
       event.preventDefault()
       mutation({ variables: { input: { email: email.value, password: password.value } } }).then(({ data }) => {
         const { signup } = data
-        console.log(signup);
+        console.log(signup)
         activateAuth(signup)
       }).catch((error) => {
-        console.log(error);
+        console.log(error)
       })
     }
 

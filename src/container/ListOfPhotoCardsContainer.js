@@ -1,6 +1,6 @@
-import React from 'react';
-import { withPhotos } from '../hoc/withPhotos';
-import { ListOfPhotoCards } from '../components/ListOfPhotoCards';
+import React from 'react'
+import { withPhotos } from '../hoc/withPhotos'
+import { ListOfPhotoCards } from '../components/ListOfPhotoCards'
 
 const ListOfPhotoCardsContainer = ({ data }) => {
   return <ListOfPhotoCards data={data} />

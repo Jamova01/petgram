@@ -1,5 +1,5 @@
-import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import React from 'react'
+import { useQuery, gql } from '@apollo/client'
 
 export const withPhotos = (WrappedComponent) => {
   return ({ categoryId }) => {

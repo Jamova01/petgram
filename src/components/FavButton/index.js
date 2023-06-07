@@ -9,5 +9,5 @@ export const FavButton = ({ liked, likes, onClick }) => {
     <Button onClick={onClick}>
       <Icon size='32px' /> {likes} likes!
     </Button>
-  );
+  )
 }

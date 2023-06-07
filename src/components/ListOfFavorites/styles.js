@@ -27,4 +27,3 @@ export const Image = styled.img`
   width: 100%;
   position: absolute;
 `
- 

@@ -32,7 +32,7 @@ export const Link = styled(LinkRouter)`
     color: black;
 
     &::after {
-      ${fadeIn({time: '0.5s'})};
+      ${fadeIn({ time: '0.5s' })};
       content: '.';
       position: absolute;
       bottom: 0;

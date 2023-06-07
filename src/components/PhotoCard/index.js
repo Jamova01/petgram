@@ -12,7 +12,7 @@ export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
   return (
     <Article ref={ref}>
       {
-        show && <Fragment>
+        show && <>
           <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} />
@@ -23,7 +23,7 @@ export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_IMAGE }) => {
             likes={likes}
             liked={liked}
           />
-        </Fragment>
+                </>
       }
 
     </Article>

@@ -10,10 +10,10 @@ const useCategoriesData = () => {
     setLoading(true)
     const fetchData = async () => {
       try {
-        const response = await window.fetch('https://petgram-api-jamova01.vercel.app/categories');
-        const res = await response.json();
-        setCategories(res);
-        setLoading(false);
+        const response = await window.fetch('https://petgram-api-jamova01.vercel.app/categories')
+        const res = await response.json()
+        setCategories(res)
+        setLoading(false)
       } catch (error) {
         console.error('Error fetching data:', error)
       }
@@ -37,7 +37,6 @@ export const ListOfCategories = () => {
 
     document.addEventListener('scroll', onScroll)
     return () => document.removeEventListener('scroll', onScroll)
-
   }, [showFixed])
 
   const renderList = (fixed) => (
@@ -51,10 +50,9 @@ export const ListOfCategories = () => {
   )
 
   return (
-    <Fragment>
+    <>
       {renderList()}
       {showFixed && renderList(true)}
-    </Fragment>
-
+    </>
   )
 }

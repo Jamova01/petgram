@@ -13,14 +13,13 @@ const LIKE_PHOTO = gql`
 
 export const withToggleLikeMutation = (WrappedComponent) => {
   return ({ photoId, liked, likes }) => {
-
     const [toggleLike] = useMutation(LIKE_PHOTO)
 
     const handleToggleLike = async () => {
       try {
         await toggleLike({
-          variables: { input: { id: photoId } },
-        });
+          variables: { input: { id: photoId } }
+        })
       } catch (error) {
         console.error('Error al ejecutar la mutación:', error)
       }

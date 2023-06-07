@@ -1,5 +1,5 @@
-import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+import React from 'react'
+import { useQuery, gql } from '@apollo/client'
 
 export const withPhoto = (WrappedComponent) => {
   return ({ id }) => {
@@ -14,7 +14,7 @@ export const withPhoto = (WrappedComponent) => {
     `
 
     const { loading, error, data } = useQuery(GET_SINGLE_PHOTO, {
-      variables: { id },
+      variables: { id }
     })
 
     if (loading) return <p>Loading...</p>

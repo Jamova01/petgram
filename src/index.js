@@ -10,6 +10,7 @@ import { ApolloClient, ApolloProvider, ApolloLink, InMemoryCache, HttpLink, conc
 import { Provider } from './Context'
 
 import { App } from './App'
+import { HelmetProvider } from 'react-helmet-async'
 
 const httpLink = new HttpLink({ uri: 'https://petgram-server-jamova01.vercel.app/graphql' })
 
@@ -32,11 +33,14 @@ const client = new ApolloClient({
 
 const container = document.getElementById('app')
 const root = createRoot(container)
+const helmetContext = {}
 
 root.render(
   <Provider>
     <ApolloProvider client={client}>
-      <App />
+      <HelmetProvider context={helmetContext}>
+        <App />
+      </HelmetProvider>
     </ApolloProvider>
   </Provider>
 )

@@ -3,7 +3,7 @@ import { withPhoto } from '../hoc/withPhoto'
 import { PhotoCard } from '../components/PhotoCard'
 
 const PhotoCardWithQuery = ({ id, likes, src }) => {
-  return <PhotoCard id={id} likes={likes} src={src} />;
-};
+  return <PhotoCard id={id} likes={likes} src={src} />
+}
 
-export default withPhoto(PhotoCardWithQuery);
+export default withPhoto(PhotoCardWithQuery)
