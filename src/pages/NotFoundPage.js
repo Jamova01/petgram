@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 export const NotFoundPage = () => {
-  return <Fragment>
-    <h1>Esta página no existe! :(</h1>
-  </Fragment>
+  return (
+    <>
+      <h1>Esta página no existe! :(</h1>
+    </>
+  )
 }

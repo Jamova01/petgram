@@ -1,19 +1,20 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Layout } from '../components/Layout'
 import PhotoCardWithQuery from '../container/PhotoCardWithQuery'
 
-export const PhotoDetailPage = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+export default () => {
+  const { id } = useParams()
+  const navigate = useNavigate()
 
   const handleGoBack = () => {
-    navigate(-1); // Navegar hacia atrás en la historia
-  };
+    navigate(-1) // Navegar hacia atrás en la historia
+  }
 
   return (
-    <Fragment>
+    <Layout title={`Fotografía ${id}`}>
       <PhotoCardWithQuery id={id} />
       <button onClick={handleGoBack}>Go Back</button>
-    </Fragment>
+    </Layout>
   )
 }

@@ -1,11 +1,10 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../Context'
 import { Navigate } from 'react-router-dom'
 import RegisterMutation from '../container/RegisterMutation'
 import LoginMutation from '../container/LoginMutation'
 
-export const NotRegisteredUser = () => {
-
+export default () => {
   const { isAuth } = useContext(Context)
 
   if (isAuth) {
@@ -13,9 +12,9 @@ export const NotRegisteredUser = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <RegisterMutation />
       <LoginMutation />
-    </Fragment>
+    </>
   )
 }
